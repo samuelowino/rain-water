@@ -1,2 +1,3 @@
-# rain-water
-The obstacle is the way and other stories
+# Rain Water: A research repository
+
+I like to take notes, I choose to put them here.
