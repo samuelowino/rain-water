@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Animation</string>
+    <string name="kick_ball_up">^^ Kick Ball Up ^^</string>
+    <string name="kick_left"><![CDATA[<< Kick Left]]></string>
+    <string name="kick_right"><![CDATA[Kick Right >>]]></string>
+</resources>
