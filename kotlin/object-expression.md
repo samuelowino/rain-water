@@ -22,7 +22,7 @@ interface Callback {
 class Runner(private val callback: Callback) {
     init {
         val count: Int = callback.onCallback()
-        val condition: Boolean = callbac.onCallback()
+        val condition: Boolean = callback.onCallback()
     }
 }
 
