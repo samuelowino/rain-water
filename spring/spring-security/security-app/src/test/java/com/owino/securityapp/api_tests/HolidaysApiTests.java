@@ -23,15 +23,23 @@ public class HolidaysApiTests {
 
     @Test
     public void should_NotListHolidaysToUnAuthenticatedPersons_Test() throws Exception {
-        mockMvc.perform(get("/holidqays"))
+        mockMvc.perform(get("/holidays"))
                 .andExpect(status().isUnauthorized())
                 .andDo(print())
                 .andReturn();
     }
 
     @Test
-    public void should_ListApiCapabilitiesWithoutAuthentication_Test() throws Exception {
-        mockMvc.perform(get("/feature"))
+    public void should_ShowHomePageWithoutAuthentication_Test() throws Exception {
+        mockMvc.perform(get("/home"))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andReturn();
+    }
+
+    @Test
+    public void should_ShowDefaultHomePageWithoutAuthentication_Test() throws Exception {
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
