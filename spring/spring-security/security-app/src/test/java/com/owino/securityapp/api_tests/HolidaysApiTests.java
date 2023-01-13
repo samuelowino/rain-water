@@ -1,5 +1,6 @@
 package com.owino.securityapp.api_tests;
 
+import com.owino.securityapp.configuration.SecurityConfiguration;
 import com.owino.securityapp.controllers.HolidaysController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(HolidaysController.class)
-@Import(HolidaysController.class)
+@Import(SecurityConfiguration.class)
 @ExtendWith(SpringExtension.class)
 public class HolidaysApiTests {
 
@@ -24,7 +25,7 @@ public class HolidaysApiTests {
     @Test
     public void should_NotListHolidaysToUnAuthenticatedPersons_Test() throws Exception {
         mockMvc.perform(get("/holidays"))
-                .andExpect(status().isUnauthorized())
+                .andExpect(status().isForbidden())
                 .andDo(print())
                 .andReturn();
     }

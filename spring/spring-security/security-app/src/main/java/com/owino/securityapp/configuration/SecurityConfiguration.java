@@ -9,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
@@ -18,11 +16,13 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                .csrf().disable()
                 .authorizeRequests()
                 .requestMatchers("/","/home")
                 .permitAll()
                 .requestMatchers("/user").hasRole("USER")
                 .requestMatchers("/admin").hasRole("ADMIN")
+                .requestMatchers("/holidays").authenticated()
                 .and()
                 .formLogin()
                 .disable()
