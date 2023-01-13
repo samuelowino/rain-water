@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HolidaysController {
 
     @GetMapping
+    public String root(){
+        return "Hello, welcome to Holidays!";
+    }
+
+    @GetMapping("/home")
     public String home(){
         return "Hello, welcome to Holidays!";
     }
