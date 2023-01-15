@@ -66,4 +66,26 @@ Spring security provides protection against common exploits.
 * **HTTP Requests**
 
 
+- - -
+
+# HttpSecurity
+> **org.springframework.security.config.annotation.web.builders.HttpSecurity** 
+> Implements **SecurityBuilder** and **HttpSecurityBuilder**
+
+```java
+class HttpSecurity extends AbstractConfiguredSecurityBuilder<DefaultSecurityFilterChain, HttpSecurity>
+		implements SecurityBuilder<DefaultSecurityFilterChain>, HttpSecurityBuilder<HttpSecurity>
+```
+
+A HttpsSecurity class is similar to spring security <http> XML element in the namespace configuration. It allows configuring web based security for specific http requests.
+
+By default HttpSecurity will be applied to all requests but can be restricted using **requestMatchers(RequestMatcher)**.
+
+
+
+
+
+
+
+
 
