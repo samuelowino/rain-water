@@ -42,9 +42,9 @@ You can use one **URLSession repeatedly to create multiple tasks**
 
 The URLSession API defines four types of tasks:
 
-* **Data tasks**: Sends and receive data using **NSData objects**
-* **Upload tasks**: Similar to data tasks but they also send data and support background uploads while the app isn't running.
-* **Download tasks**: Retrieve data in the form of a file and support background uploads and downloads.
+* **URLSessionDataTask**: Sends and receive data using **NSData objects**. **GET**
+* **URLSessionUploadTask**: Similar to data tasks but they also send data and support background uploads while the app isn't running. **POST or PUT**
+* **URLSessionDownloadTask**: Retrieve data in the form of a file and support background uploads and downloads. **FILES**
 * **WebSocket Tasks**: Exchange objects over **TCP** and **TLS** using the **WebSocket Protocol**
 
 ## Using a Session Delegate
@@ -61,5 +61,39 @@ If you don't need the features provided by a delegate, you can use URLSession wi
 
 Like most networking APIs the URLSession API is highly asynchronous 
 
+## URLSession Dependencies
 
+![URLSession Dependencies](../../url_session_dependencies.png)
 
+URLSession has a dependency called **URLSessionConfiguration**, this is used to cofigure the http request properties such as **chaching policy, session type, https headers and timeout**
+
+When you define a http session, you have three choices:
+
+* **.default**: Will create a session configuration object that uses disk persisted global cache, credentials and cookie storage objects.
+
+* **.ephemeral**: Similar to .default except the session configurationd data is saved in memory.
+
+* **.background**: Creates a background session for upload and download tasks, it can be resumed or cancelled and can continue the task after the app has been terminated or killed
+
+## URLRequest
+
+URLRequest only represents information about the request.
+
+A URLRequest encapsulates two essential properties of a load request:
+
+* **The URL to load**
+* **The policies used to load it**
+
+For **HTTP** and **HTTPS** methods URLRequest constains the **HTTP methods (GET,PUT,POST and so on)** and the **HTTP Headers**
+
+## URLSessionDataTask
+
+A URL Session tasks that returns data directly to the app in memory
+
+A data tasks returns data directly to the app in memory as one or more **NSData object**
+
+- - -
+
+## URLResponse
+
+The metadata associated with a response to a URL load request, independent of protocol and URL scheme
