@@ -1,11 +1,13 @@
 package com.owino.securityapp.api_tests;
 
+import com.owino.securityapp.auth.AppUserDetailsService;
 import com.owino.securityapp.configuration.SecurityConfiguration;
 import com.owino.securityapp.controllers.HolidaysController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,6 +23,9 @@ public class HolidaysApiTests {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @MockBean
+    private AppUserDetailsService userDetailsService;
 
     @Test
     public void should_NotListHolidaysToUnAuthenticatedPersons_Test() throws Exception {

@@ -1,4 +1,7 @@
-com/owino/securityapp/SecurityappApplication.class
-com/owino/securityapp/ServletInitializer.class
-com/owino/securityapp/controllers/HolidaysController.class
-com/owino/securityapp/configuration/SecurityConfiguration.class
+com\owino\securityapp\auth\UserAuthority.class
+com\owino\securityapp\configuration\SecurityConfiguration.class
+com\owino\securityapp\controllers\HolidaysController.class
+com\owino\securityapp\auth\AppUserDetailsService.class
+com\owino\securityapp\ServletInitializer.class
+com\owino\securityapp\auth\SecurityUser.class
+com\owino\securityapp\SecurityappApplication.class
