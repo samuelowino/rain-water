@@ -2,6 +2,8 @@ package com.owino.securityapp.controllers;
 
 import java.util.Arrays;
 import java.util.List;
+
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +21,8 @@ public class HolidaysController {
     }
 
     @GetMapping("/user")
-    public String user(){
-        return "Hello user!";
+    public String user(Authentication authentication){
+        return "Hello " + authentication.getName() + ".\nWelcome to holidays API";
     }
 
     @GetMapping("/admin")
