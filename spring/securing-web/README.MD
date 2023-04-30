@@ -51,7 +51,7 @@ The **addViewControllers** method adds four view controllers. Two of the view co
 
 Add this annotation to an **@Configuration class** to have the Spring Security configuration defined in any **WebSecurityConfigurer** or more likely by extending the **WebSecurityConfigurerAdapter** base class and overriding individual methods:
 
-```
+```java
 
 @Configuration
 @EnableWebSecurity
@@ -93,13 +93,15 @@ public class MyWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ```
 
-## WebSecurityConfigurerAdapter: class
+## WebSecurityConfigurerAdapter: class [deprecated]
 
 Provides a convinient base class for creating a **WebSecurityConfiguere** instance. The implementation allows customization by overriding methods.
 
 ## WebSecurityConfigurer: interface
 
 Allow customization to the **WebSecurity**. In most cases, users will use **EnableWebSecurity** and create **Configuration** that extends **WebSecurityConfigurerAdapter** which will automatically be supplied to the **WebSecurity** by the **EnableWebSecurity** annotation.
+
+
 
 
 
