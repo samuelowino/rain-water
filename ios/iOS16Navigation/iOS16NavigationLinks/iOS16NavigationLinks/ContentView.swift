@@ -17,17 +17,13 @@ struct ContentView: View {
                 Section(category.rawValue) {
                     ForEach(recipes(in: category)) { recipe in
                         NavigationLink(recipe.name, value: recipe)
-                            .onTapGesture {
-                                viewModel.openRecipe(recipe)
-                            }
                     }
                 }
             }
-        }
-        .navigationTitle("Old NavigationLinks")
-        .navigationDestination(for: Recipe.self) { recipe in
-            // The destination view builder
-            Label("Recipet: \(recipe.name)", systemImage: "wallet")
+            .navigationTitle("Home")
+            .navigationDestination(for: Recipe.self) { recipe in
+                RecipeDetailed()
+            }
         }
     }
 }
@@ -37,7 +33,7 @@ class ViewModel: ObservableObject {
     @Published var path:[Recipe] = []
     
     func openRecipe(_ recipe: Recipe) {
-        path.append(recipe)
+        path = [recipe]
     }
 
     func popToRoot(){
